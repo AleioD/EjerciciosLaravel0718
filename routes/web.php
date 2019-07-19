@@ -58,5 +58,9 @@ Route::get('/peliculas/{id}', function($id){
       $pelicula = $unaPelicula;
     }
   }
+  if (!isset($pelicula)) {
+    $error = 'El id indicado no corresponde a ninguna película';
+    return view ('detallePelicula', compact('error'));
+  }
   return view ('detallePelicula', compact('pelicula'));
 });
